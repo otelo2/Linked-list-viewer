@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package array.viewer;
+package linkedLists.viewer;
 
 /**
  *
@@ -21,7 +21,7 @@ package array.viewer;
  * https://stackoverflow.com/questions/1043872/are-there-any-built-in-methods-in-java-to-increase-font-size?lq=1
  * 
  */
-public class ArrayViewer {
+public class LinkedListsViewer {
 
     /**
      * @param args the command line arguments

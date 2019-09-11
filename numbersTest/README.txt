@@ -1,0 +1,1 @@
+To load a file for the program to read it, you must copy the file you want from here, copy it in the root of the project (the previous folder) and rename it to integers.txt

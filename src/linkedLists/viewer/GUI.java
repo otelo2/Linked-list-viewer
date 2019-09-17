@@ -8,6 +8,9 @@ package linkedLists.viewer;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
 /**
@@ -30,12 +33,19 @@ public class GUI extends JFrame implements ActionListener{
 
     JTextArea arrayArea;
     JScrollPane scrollPane;
+    
+    Color color1;
+    Color color2;
+    Color color3;
+    Color color4;
+    Color color5;
 
     Array myArr;
     
     //Constructor
     GUI() {
         Container contentPane;
+        addColors();
 
         //Sets properties of the window
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -45,38 +55,62 @@ public class GUI extends JFrame implements ActionListener{
 
         contentPane = getContentPane();
         contentPane.setLayout(null);
-        contentPane.setBackground(new Color(48, 48, 48));
+        contentPane.setBackground(Color.black);
         
         //Sets the font, useful for changing its size
         Font Helvetica = new Font("helvetica", Font.PLAIN, 20);
         
         //Creates the main menu
         menuTools = new JMenu("Tools");
-        menuTools.setForeground(new Color(255,255,255));
+        menuTools.setForeground(color4);
+        menuTools.setBackground(color2);
+        menuTools.setBorder(null);
+        menuTools.setBorderPainted(false);
         
         //Creates the menu that has additional functions that werent
         // part of the assignment specifications. Mostly for testing new stuff out.
         menuExtras = new JMenu("Extras");
-        menuExtras.setForeground(new Color(255,255,255));
+        menuExtras.setForeground(color4);
+        menuExtras.setBackground(color2);
 
         //Creates the different menu items and adds them to the main menu
         menuItem = new JMenuItem("Insert one element");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuTools.add(menuItem);
         
         menuItem = new JMenuItem("Insert all from file");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuTools.add(menuItem);
 
         menuItem = new JMenuItem("Delete one element");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuTools.add(menuItem);
         
         menuItem = new JMenuItem("Show Contents");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuTools.add(menuItem);
         
         menuItem = new JMenuItem("Merge Sort");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuTools.add(menuItem);
         
@@ -84,27 +118,51 @@ public class GUI extends JFrame implements ActionListener{
         menuTools.add(new JSeparator());
 
         menuItem = new JMenuItem("Exit");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuTools.add(menuItem);
 
         //These items go to the extras menu
         menuItem = new JMenuItem("Delete Every");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuExtras.add(menuItem);
         
         menuItem = new JMenuItem("Delete Everything");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuExtras.add(menuItem);
 
         menuItem = new JMenuItem("Bubble Sort");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuExtras.add(menuItem);
 
         menuItem = new JMenuItem("Search");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuExtras.add(menuItem);
         
         menuItem = new JMenuItem("Search Every");
+        menuItem.setBackground(color2);
+        menuItem.setForeground(color4);
+        menuItem.setBorder(null);
+        menuItem.setBorderPainted(false);
         menuItem.addActionListener(this);
         menuExtras.add(menuItem);
         
@@ -113,15 +171,16 @@ public class GUI extends JFrame implements ActionListener{
         setJMenuBar(menuBar);
         menuBar.add(menuTools);
         menuBar.add(menuExtras);
-        menuBar.setBackground(new Color(38,38,38));
+        menuBar.setBackground(color2);
+        menuBar.setForeground(color5);
 
         //This is where the numbers of the array are shown
         arrayArea = new JTextArea();
         arrayArea.setBounds(50, 70, 220, 65);
         arrayArea.setEditable(false);
         arrayArea.setBorder(null);
-        arrayArea.setForeground(Color.white);
-        arrayArea.setBackground(new Color(33,33,33));
+        arrayArea.setForeground(color5);
+        arrayArea.setBackground(color1);
         arrayArea.setFont(Helvetica);
         contentPane.add(arrayArea);
 
@@ -129,14 +188,14 @@ public class GUI extends JFrame implements ActionListener{
         scrollPane = new JScrollPane(arrayArea);
         scrollPane.setBounds(0, 0, 385, 339);
         scrollPane.setBorder(null);
-        scrollPane.getHorizontalScrollBar().setBackground(new Color(48,48,48));
-        //Makes the scrollbar thumb color wine 
+        scrollPane.getHorizontalScrollBar().setBackground(color2);
+        //Changes the scrollbar thumb color 
         scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI()
         {
             @Override
             protected void configureScrollBarColors()
             {
-                this.thumbColor = new Color (145, 47, 64);
+                this.thumbColor = color4;
             }
         });
         contentPane.add(scrollPane);
@@ -272,4 +331,38 @@ public class GUI extends JFrame implements ActionListener{
         }
     }
     
+    public void addColors(){
+        int [] arrColors = new int[15];
+        try{
+            Scanner scanner = new Scanner(new File("colors.txt"));
+            int i=0;
+            while(scanner.hasNextInt() && (i<15)){
+                arrColors[i++] = scanner.nextInt();
+            }
+        }catch(FileNotFoundException e){
+            System.out.println("colors.txt not found");
+        }
+        
+        int r1=arrColors[0];
+        int g1=arrColors[1];
+        int b1 =arrColors[2];
+        int r2=arrColors[3];
+        int g2=arrColors[4];
+        int b2 =arrColors[5];
+        int r3=arrColors[6];
+        int g3=arrColors[7];
+        int b3 =arrColors[8];
+        int r4=arrColors[9];
+        int g4=arrColors[10];
+        int b4 =arrColors[11];
+        int r5=arrColors[12];
+        int g5=arrColors[13];
+        int b5 =arrColors[14];
+        
+        color1 = new Color(r1,g1,b1);
+        color2 = new Color(r2,g2,b2);
+        color3 = new Color(r3,g3,b3);
+        color4 = new Color(r4,g4,b4);
+        color5 = new Color(r5,g5,b5);
+    }
 }

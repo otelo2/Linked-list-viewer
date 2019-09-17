@@ -16,5 +16,12 @@ package linkedLists.viewer;
  */
 public class DCNode {
     //Will contain one integer and two pointers, one to the next node and one to the previous node
+    DCNode next;
+    DCNode prev;
+    int data;
     
+    //Constructor
+    public DCNode(int data){
+        this.data = data;
+    }
 }

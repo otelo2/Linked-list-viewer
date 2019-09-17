@@ -16,5 +16,6 @@ package linkedLists.viewer;
  */
 public class DoubleCircularLinkedList {
     //Will contain attribute 'head' and methods to insert one element, inert from file (ordered), eliminate, search and display elements of the linked list.
+    DCNode head;
     
 }

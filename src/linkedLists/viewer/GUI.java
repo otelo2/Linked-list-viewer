@@ -206,7 +206,7 @@ public class GUI extends JFrame implements ActionListener {
                     numb = Integer.parseInt(input);
                     deleted=linkedList.delete(numb);
                     if(deleted==true){
-                        //Deletion success, no need to show anything
+                        JOptionPane.showMessageDialog(null, "Number found and deleted", "Number not in the list",JOptionPane.INFORMATION_MESSAGE);
                     } else{
                         JOptionPane.showMessageDialog(null, "Number not found", "Number not in the list",JOptionPane.ERROR_MESSAGE);
                     }
@@ -224,7 +224,7 @@ public class GUI extends JFrame implements ActionListener {
                     if(temp==null){
                         JOptionPane.showMessageDialog(null, "Number not found","Number not in the list",JOptionPane.ERROR_MESSAGE);
                     } else{
-                        JOptionPane.showMessageDialog(null, "Found the number in the list: "+temp,"Number found",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Found the number in the list: "+temp,"Number found",JOptionPane.INFORMATION_MESSAGE);
                     }
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "You need to type an integer");

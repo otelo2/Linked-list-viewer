@@ -12,10 +12,10 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 162442 José Antonio Solís Martínez jose.solismz@udlap.mx 162064 María
- * Fernanda Flores Luna maria.floresla@udlap.mx 16XXXX Jorge André Tenorio
- * Guzman jorge.tenoriogn@udlap.mx 16XXXX Mauricio Raúl Tenorio Guzman
- * mauricio.tenoriogn@udlap.mx
+ * @author 162442 José Antonio Solís Martínez jose.solismz@udlap.mx 
+ * 162064 María Fernanda Flores Luna maria.floresla@udlap.mx 
+ * 162107 Jorge André Tenorio Guzman jorge.tenoriogn@udlap.mx 
+ * 162106 Mauricio Raúl Tenorio Guzman mauricio.tenoriogn@udlap.mx
  *
  * Date of creation: 11/09/2019
  */
@@ -42,6 +42,10 @@ public class DoubleCircularLinkedList {
         } else {
             DCNode temp;
             temp = head;
+            
+             if (node.data < head.data) {
+                head = node;
+            }             
             do {
                 if (temp.data < n) {
                     temp = temp.next;
@@ -52,10 +56,7 @@ public class DoubleCircularLinkedList {
             temp.prev = node;
             temp = node.prev;
             temp.next = node;
-
-            if (node.data < head.data) {
-                head = node;
-            }
+            
             if (node.data > tail.data) {
                 tail = node;
             }

@@ -9,7 +9,7 @@ package linkedLists.viewer;
  *
  * @author 162442 José Antonio Solís Martínez jose.solismz@udlap.mx
  *         162064 María Fernanda Flores Luna maria.floresla@udlap.mx
- *         16XXXX Jorge André Tenorio Guzman jorge.tenoriogn@udlap.mx
+ *         162107 Jorge André Tenorio Guzman jorge.tenoriogn@udlap.mx
  *         16XXXX Mauricio Raúl Tenorio Guzman mauricio.tenoriogn@udlap.mx
  *         
  * Date of creation: 11/09/2019
